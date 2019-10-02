@@ -1,0 +1,296 @@
+#packages 
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+import math as math
+
+
+#Importing datasets
+training = pd.read_csv("C:/Users/Deepesh/Desktop/fashion_train.csv", header=None)
+test = pd.read_csv("C:/Users/Deepesh/Desktop/fashion_test.csv", header=None)
+
+#Sampling 20000
+training=training.sample(frac=1)
+tr_i = training.iloc[0:20000,:]
+tr_i.rename(columns={0:'label'},inplace=True)
+test.rename(columns={0:'label'},inplace=True)
+
+
+#For number 9
+tr_i_9=tr_i
+tr_i_9['label'] = np.where(tr_i_9['label'] < 9, 0, 1)
+test_9 = test.iloc[0:5000,:]
+test_9['label'] = np.where(test_9['label'] < 9, 0, 1)
+X_9=tr_i_9.drop("label",axis=1)
+Y_9=tr_i_9["label"]
+X_test_9 = test_9.drop("label",axis=1)
+Y_test_9= test_9["label"]
+from sklearn import linear_model
+lm = linear_model.LogisticRegression()
+lm.fit(X_9, Y_9)
+predictions_9 = lm.predict(X_test_9)
+from sklearn.metrics import confusion_matrix
+confusion_matrix(Y_test_9,predictions_9)
+probability_9 = lm.predict_proba(X_test_9)
+probability9 =pd.DataFrame(probability_9,index=probability_9[:,0])
+
+
+#For number 8
+tr_i = training.iloc[0:20000,:]
+tr_i.rename(columns={0:'label'},inplace=True)
+
+tr_i_8=tr_i
+tr_i_8['label'] = np.where(tr_i_8['label'] == 8, 1, 0)
+test_8 = test.iloc[0:5000,:]
+test_8['label'] = np.where(test_8['label'] == 8, 1, 0)
+X_8=tr_i_8.drop("label",axis=1)
+Y_8=tr_i_8["label"]
+X_test_8 = test_8.drop("label",axis=1)
+Y_test_8= test_8["label"]
+from sklearn import linear_model
+lm_8 = linear_model.LogisticRegression()
+lm_8.fit(X_8, Y_8)
+predictions_8 = lm_8.predict(X_test_8)
+from sklearn.metrics import confusion_matrix
+confusion_matrix(Y_test_8,predictions_8)
+probability_8 = lm_8.predict_proba(X_test_8)
+probability8 =pd.DataFrame(probability_8,index=probability_8[:,0])
+
+#For number 7
+tr_i = training.iloc[0:20000,:]
+tr_i.rename(columns={0:'label'},inplace=True)
+
+tr_i_7=tr_i
+tr_i_7['label'] = np.where(tr_i_7['label'] == 7, 1, 0)
+test_7 = test.iloc[0:5000,:]
+test_7['label'] = np.where(test_7['label'] == 7, 1, 0)
+X_7=tr_i_7.drop("label",axis=1)
+Y_7=tr_i_7["label"]
+X_test_7 = test_7.drop("label",axis=1)
+Y_test_7= test_7["label"]
+from sklearn import linear_model
+lm_7 = linear_model.LogisticRegression()
+lm_7.fit(X_7, Y_7)
+predictions_7 = lm_7.predict(X_test_7)
+from sklearn.metrics import confusion_matrix
+confusion_matrix(Y_test_7,predictions_7)
+probability_7 = lm_7.predict_proba(X_test_7)
+probability7 =pd.DataFrame(probability_7,index=probability_7[:,0])
+
+#For number 6
+
+tr_i = training.iloc[0:20000,:]
+tr_i.rename(columns={0:'label'},inplace=True)
+tr_i_6=tr_i
+tr_i_6['label'] = np.where(tr_i_6['label'] == 6, 1, 0)
+test_6 = test.iloc[0:5000,:]
+test_6['label'] = np.where(test_6['label'] == 6, 1, 0)
+X_6=tr_i_6.drop("label",axis=1)
+Y_6=tr_i_6["label"]
+X_test_6 = test_6.drop("label",axis=1)
+Y_test_6= test_6["label"]
+from sklearn import linear_model
+lm_6 = linear_model.LogisticRegression()
+lm_6.fit(X_6, Y_6)
+predictions_6 = lm_6.predict(X_test_6)
+from sklearn.metrics import confusion_matrix
+confusion_matrix(Y_test_6,predictions_6)
+probability_6 = lm_6.predict_proba(X_test_6)
+probability6 =pd.DataFrame(probability_6,index=probability_6[:,0])
+
+#For number 5
+tr_i = training.iloc[0:20000,:]
+tr_i.rename(columns={0:'label'},inplace=True)
+tr_i_5=tr_i
+tr_i_5['label'] = np.where(tr_i_5['label'] == 5, 1, 0)
+test_5 = test.iloc[0:5000,:]
+test_5['label'] = np.where(test_5['label'] == 5, 1, 0)
+X_5=tr_i_5.drop("label",axis=1)
+Y_5=tr_i_5["label"]
+X_test_5 = test_5.drop("label",axis=1)
+Y_test_5= test_5["label"]
+from sklearn import linear_model
+lm_5 = linear_model.LogisticRegression()
+lm_5.fit(X_5, Y_5)
+predictions_5 = lm_5.predict(X_test_5)
+from sklearn.metrics import confusion_matrix
+confusion_matrix(Y_test_5,predictions_5)
+probability_5 = lm_5.predict_proba(X_test_5)
+probability5 =pd.DataFrame(probability_5,index=probability_5[:,0])
+
+#For number 4
+tr_i = training.iloc[0:20000,:]
+tr_i.rename(columns={0:'label'},inplace=True)
+tr_i_4=tr_i
+tr_i_4['label'] = np.where(tr_i_4['label'] == 4, 1, 0)
+test_4 = test.iloc[0:5000,:]
+test_4['label'] = np.where(test_4['label'] == 4, 1, 0)
+X_4=tr_i_4.drop("label",axis=1)
+Y_4=tr_i_4["label"]
+X_test_4 = test_4.drop("label",axis=1)
+Y_test_4= test_4["label"]
+from sklearn import linear_model
+lm_4 = linear_model.LogisticRegression()
+lm_4.fit(X_4, Y_4)
+predictions_4 = lm_4.predict(X_test_4)
+from sklearn.metrics import confusion_matrix
+confusion_matrix(Y_test_4,predictions_4)
+probability_4 = lm_4.predict_proba(X_test_4)
+probability4 =pd.DataFrame(probability_4,index=probability_4[:,0])
+
+#For number 3
+tr_i = training.iloc[0:20000,:]
+tr_i.rename(columns={0:'label'},inplace=True)
+tr_i_3=tr_i
+tr_i_3['label'] = np.where(tr_i_3['label'] == 3, 1, 0)
+test_3 = test.iloc[0:5000,:]
+test_3['label'] = np.where(test_3['label'] == 3, 1, 0)
+X_3=tr_i_3.drop("label",axis=1)
+Y_3=tr_i_3["label"]
+X_test_3 = test_3.drop("label",axis=1)
+Y_test_3= test_3["label"]
+from sklearn import linear_model
+lm_3 = linear_model.LogisticRegression()
+lm_3.fit(X_3, Y_3)
+predictions_3 = lm_3.predict(X_test_3)
+from sklearn.metrics import confusion_matrix
+confusion_matrix(Y_test_3,predictions_3)
+probability_3 = lm_3.predict_proba(X_test_3)
+probability3 =pd.DataFrame(probability_3,index=probability_3[:,0])
+
+#For number 2
+tr_i = training.iloc[0:20000,:]
+tr_i.rename(columns={0:'label'},inplace=True)
+tr_i_2=tr_i
+tr_i_2['label'] = np.where(tr_i_2['label'] == 2, 1, 0)
+test_2 = test.iloc[0:5000,:]
+test_2['label'] = np.where(test_2['label'] == 2, 1, 0)
+X_2=tr_i_2.drop("label",axis=1)
+Y_2=tr_i_2["label"]
+X_test_2 = test_2.drop("label",axis=1)
+Y_test_2= test_2["label"]
+from sklearn import linear_model
+lm_2 = linear_model.LogisticRegression()
+lm_2.fit(X_2, Y_2)
+predictions_2 = lm_2.predict(X_test_2)
+from sklearn.metrics import confusion_matrix
+confusion_matrix(Y_test_2,predictions_2)
+probability_2 = lm_2.predict_proba(X_test_2)
+probability2 =pd.DataFrame(probability_2,index=probability_2[:,0])
+
+#For number 1
+tr_i = training.iloc[0:20000,:]
+tr_i.rename(columns={0:'label'},inplace=True)
+tr_i_1=tr_i
+tr_i_1['label'] = np.where(tr_i_1['label'] == 1, 1, 0)
+test_1 = test.iloc[0:5000,:]
+test_1['label'] = np.where(test_1['label'] == 1, 1, 0)
+X_1=tr_i_1.drop("label",axis=1)
+Y_1=tr_i_1["label"]
+X_test_1 = test_1.drop("label",axis=1)
+Y_test_1= test_1["label"]
+from sklearn import linear_model
+lm_1 = linear_model.LogisticRegression()
+lm_1.fit(X_1, Y_1)
+predictions_1 = lm_1.predict(X_test_1)
+from sklearn.metrics import confusion_matrix
+confusion_matrix(Y_test_1,predictions_1)
+probability_1 = lm_1.predict_proba(X_test_1)
+probability1 =pd.DataFrame(probability_1,index=probability_1[:,0])
+
+#For number 0
+tr_i = training.iloc[0:20000,:]
+tr_i.rename(columns={0:'label'},inplace=True)
+tr_i_0=tr_i
+tr_i_0['label'] = np.where(tr_i_0['label'] == 0, 1, 0)
+test_0 = test.iloc[0:5000,:]
+test_0['label'] = np.where(test_0['label'] == 0, 1, 0)
+X_0=tr_i_0.drop("label",axis=1)
+Y_0=tr_i_0["label"]
+X_test_0 = test_0.drop("label",axis=1)
+Y_test_0= test_0["label"]
+from sklearn import linear_model
+lm_0 = linear_model.LogisticRegression()
+lm_0.fit(X_0, Y_0)
+predictions_0 = lm_0.predict(X_test_0)
+from sklearn.metrics import confusion_matrix
+confusion_matrix(Y_test_0,predictions_0)
+probability_0 = lm_0.predict_proba(X_test_0)
+probability0 =pd.DataFrame(probability_0,index=probability_0[:,0])
+
+
+# Combining the probabilites and getting on mattrix for all probabilities
+prob5 =pd.DataFrame(probability_5, columns =list('05'))
+prob6 =pd.DataFrame(probability_6, columns =list('06'))
+prob7 =pd.DataFrame(probability_7, columns =list('07'))
+prob8 =pd.DataFrame(probability_8, columns =list('08'))
+prob9 =pd.DataFrame(probability_9, columns =list('09'))
+prob0 =pd.DataFrame(probability_0, columns =list('c0'))
+prob1 =pd.DataFrame(probability_1, columns =list('01'))
+prob2 =pd.DataFrame(probability_2, columns =list('02'))
+prob3 =pd.DataFrame(probability_3, columns =list('03'))
+prob4 =pd.DataFrame(probability_4, columns =list('04'))
+prob0 =prob0.iloc[:,1:2]
+prob1 =prob1.iloc[:,1:2]
+prob2 =prob2.iloc[:,1:2]
+prob3 =prob3.iloc[:,1:2]
+prob4 =prob4.iloc[:,1:2]
+prob5 =prob5.iloc[:,1:2]
+prob6 =prob6.iloc[:,1:2]
+prob7 =prob7.iloc[:,1:2]
+prob8 =prob8.iloc[:,1:2]
+prob9 =prob9.iloc[:,1:2]
+prob_t = prob0.join(prob1)
+prob_t_2_3 = prob2.join(prob3)
+prob_t_4_5 = prob4.join(prob5)
+prob_t_6_7 = prob6.join(prob7)
+prob_t_8_9 = prob8.join(prob9)
+prob_2_3_4_5 = prob_t_2_3.join(prob_t_4_5)
+prob_6_7_8_9= prob_t_6_7.join(prob_t_8_9)
+prob_not_0= prob_2_3_4_5.join(prob_6_7_8_9)
+prob_all = prob_t.join(prob_not_0)
+
+
+#Getting label with max probability
+temp = prob_all.idxmax(axis=1)
+
+#Changing type to int
+Temp_f=temp.astype(int)
+
+
+#Plotting the confusion mattrix
+test_F= test.iloc[0:5000,:]
+Y_Test_f = test_F["label"]
+confusion_matrix(Y_Test_f,Temp_f)
+
+#Getting the Accuracy
+from sklearn.metrics import accuracy_score
+accuracy_score(Y_Test_f,Temp_f)
+
+#Mulinomial model
+training_m = pd.read_csv("C:/Users/Deepesh/Desktop/fashion_train.csv", header=None)
+training_m_r = training_m.sample(frac=1)
+t_m = training_m_r.iloc[0:20000,:]
+t_m.rename(columns={0:'label'},inplace=True)
+X_m=t_m.drop("label",axis=1)
+Y_m=t_m["label"]
+mul_lr = linear_model.LogisticRegression(multi_class='multinomial', solver='newton-cg').fit(X_m, Y_m)
+test_m = pd.read_csv("C:/Users/Deepesh/Desktop/fashion_test.csv", header=None)
+test_m.rename(columns={0:'label'},inplace=True)
+Xtest_m=test_m.drop("label",axis=1)
+Ytest_m=test_m["label"]
+predictions = mul_lr.predict(Xtest_m)
+from sklearn.metrics import confusion_matrix
+confusion_matrix(Ytest_m,predictions)
+from sklearn.metrics import accuracy_score
+accuracy_score(Ytest_m,predictions)
+
+# Train multi-classification model with logistic regression
+lr = linear_model.LogisticRegression()
+lr.fit(X_m, Y_m)
+predictions_l = lr.predict(Xtest_m)
+confusion_matrix(Ytest_m,predictions_l)
+accuracy_score(Ytest_m,predictions_l)
+
+
